@@ -16,24 +16,34 @@ if (!fs.existsSync(baseUploadsDir)) {
 
 const storage = multer.diskStorage({
   destination: async (req, file, cb) => {
-    if (!req.session.user) {
-      return cb(new Error('Usuário não autenticado'), false);
+    const userId = req.session.user?.id; // ID do usuário
+    const docId = req.body.docId || Date.now(); // Identificador do documento
+  
+    if (!userId) {
+      return cb(new Error("Usuário não autenticado"), false);
     }
-
-    const userId = req.session.user.id; // Pega o userId da sessão
-    const userFolder = path.join(__dirname, 'uploads', userId.toString()); // Define o caminho da pasta do usuário
-
-    // Cria a pasta do usuário se ela não existir
+  
+    // Caminho base para uploads
+    const userFolder = path.join(baseUploadsDir, userId.toString());
+    const docFolder = path.join(userFolder, docId.toString());
+  
     try {
+      // Criar pasta do usuário se não existir
       if (!fs.existsSync(userFolder)) {
-        fs.mkdirSync(userFolder, { recursive: true }); // Cria a pasta com o nome do userId
+        fs.mkdirSync(userFolder, { recursive: true });
       }
-      cb(null, userFolder); // Define o diretório de destino
+      // Criar pasta do documento se não existir
+      if (!fs.existsSync(docFolder)) {
+        fs.mkdirSync(docFolder, { recursive: true });
+      }
+  
+      cb(null, docFolder); // Define o diretório para os arquivos
     } catch (error) {
-      console.error('Erro ao criar diretório:', error);
+      console.error("Erro ao criar diretório:", error);
       cb(error, false);
     }
   },
+  
 
   filename: (req, file, cb) => {
     // Cria um nome de arquivo único baseado no timestamp e na extensão do arquivo
