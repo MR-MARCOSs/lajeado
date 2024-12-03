@@ -9,6 +9,11 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 // Configuração do multer para o armazenamento de arquivos
+const baseUploadsDir = path.join(__dirname, 'uploads');
+if (!fs.existsSync(baseUploadsDir)) {
+  fs.mkdirSync(baseUploadsDir, { recursive: true });
+}
+
 const storage = multer.diskStorage({
   destination: async (req, file, cb) => {
     if (!req.session.user) {
