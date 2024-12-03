@@ -1,0 +1,251 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Monserrat', sans-serif;
+}
+
+header{
+    height: 110px;
+    padding: 10px 0;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto; 
+    background-color: #fff;
+}
+
+.logo_home{
+    position: absolute; 
+    margin-top: 1%;  
+    left: 0;
+    margin: 10px; 
+}
+
+.header-search{
+    position: absolute;
+    margin-top: 2.5%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+::placeholder{
+    padding-left: 15px;
+}
+
+.perfil{
+    position: absolute;
+    margin-top: 2.5%;  
+    right: 0;
+    margin: 10px; 
+}
+
+input{
+    width: 400px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #000;
+}
+
+.body-section{
+    background-color: #3F5FCE;
+    height: 600px;
+    color: #fff;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.8);
+}
+
+.title{
+    text-align: center;
+}
+
+.box{
+    display: flex;
+}
+
+.info{
+    margin-left: 5%;
+    margin-top: 6%;
+}
+
+.info img{
+    display: flex;
+    flex-direction: column;
+    margin-left: -10%;
+}
+
+.servico{
+    display: block;
+    border: 1px solid #000;
+    border-radius: 10px;
+    margin-left: 30%;
+    margin-top: 5%;
+    width: 300px;
+    height: 250px;
+    text-align: center;
+    background-color: #102048;
+    color: #fff;
+}
+
+.tipo_s{
+    margin-top: 6%;
+}
+
+.botoes{
+    display: flex;
+    flex-direction: row;
+    margin-top: 5%;
+    margin-left: 20%;
+    gap: 10%;
+    transition: background-color 0.3s ease;
+}
+
+.botoes button{
+    background-color: #fff;
+    border-radius: 10px;
+    width: 90px;
+    height: 40px;
+    border: 1px solid #fff;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.botoes button:hover{
+    background-color: #D1D8FF;
+}
+
+.position-button{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    right: -50%;
+}
+
+.button{
+    margin-top: 30%;
+    width: 90px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #fff;
+    border: 1px solid #fff;
+}
+
+
+/* Bloco principal */
+.bloco {
+    color: #fff;
+    background-color: #102A83;
+    height: auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Contato */
+.contato {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+/* Info e ajuda */
+.info_ajuda {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1%;
+    margin-left: 10px;
+    justify-content: space-evenly;
+    flex-wrap: wrap; /* Para quebrar a linha em telas menores */
+}
+
+/* Ajuste do logo e linha de informação */
+.info_ajuda img{
+    margin-top: 6%;
+}
+
+.info_ajuda h4 {
+    margin-top: 5.6%;
+}
+
+/* Caixas de informações (Ouvidoria, Informações, Portal de Transparência) */
+.ouvidoria,
+.informacoes,
+.portal {
+    border: 1px solid #fff;
+    border-radius: 15px;
+    color: #F4B117;
+    background-color: #fff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    padding: 20px;
+    width: 220px;
+    height: 130px;
+    transition: all 0.3s ease; /* Adicionando transição para o efeito hover */
+}
+
+/* Efeito de hover nas caixas */
+.ouvidoria:hover,
+.informacoes:hover,
+.portal:hover {
+    background-color: #F4B117;
+    color: #102A83;
+    cursor: pointer;
+}
+
+/* Responsividade para tablets (768px a 1024px) */
+@media (max-width: 1024px) {
+    .info_ajuda {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10%;
+        margin-left: 0;
+    }
+
+    .ouvidoria,
+    .informacoes,
+    .portal {
+        width: 180px; /* Reduzir a largura para tablets */
+        height: 100px; /* Ajustar altura */
+    }
+
+    #logo-info, 
+    .info_ajuda h4{
+        margin-top: 10%;
+    }
+}
+
+/* Responsividade para smartphones (até 767px) */
+@media (max-width: 767px) {
+    .info_ajuda {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10%;
+    }
+
+    .ouvidoria,
+    .informacoes,
+    .portal {
+        width: 90%; /* Ajuste da largura para dispositivos móveis */
+        height: auto; /* Ajustar altura */
+        padding: 20px;
+        margin: 10px 0;
+    }
+
+    #logo-info, 
+    #info-line {
+        margin-top: 10%;
+    }
+
+    .bloco {
+        height: auto;
+        padding: 15px;
+    }
+}

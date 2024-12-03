@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+
+    <!-- Mantém a estilização do seu CSS -->
+    <link rel="stylesheet" href="./css/style_login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Montserrat&family=Varela+Round&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-log">
+            <div class="logo">
+                <img src="./img/Logo_lageado.png" alt="">
+            </div>
+        </div>
+        <hr>
+    </header>
+
+    <!-- Exibe o erro, caso exista -->
+    <% if (errorMessage) { %>
+        <div class="error-message">
+            <%= errorMessage %>
+        </div>
+    <% } %>
+
+    <!-- Formulário de login -->
+    <form action="/login" method="POST"> 
+        <div class="container">
+            <!-- Ajustar o campo CPF -->
+            <div class="input_cpf">
+                <label for="CPF">CPF:</label>
+                <br>
+                <input id="inputcpf" type="number" name="cpf" required>
+            </div>
+            <br>
+
+            <!-- Ajustar o campo de Senha -->
+            <div class="input_password">
+                <label for="senha">Senha:</label>
+                <br>
+                <input id="inputsenha" type="password" name="password" required>
+            </div>
+            <br><br>
+
+            <!-- Botão de login -->
+            <div class="button_log_user">
+                <button type="submit" id="button_log">Entrar</button>                    
+            </div>
+            <br><br>
+
+            <!-- Links adicionais -->
+            <div class="linked_line">
+                <p>Não possui cadastro?</p><a href="./cadastro">Cadastre-se</a>
+            </div>
+
+            <div class="linked_line">
+                <a href="#">Esqueci minha senha</a>
+            </div>
+
+        </div>
+    </form>
+
+    <style>
+        .error-message {
+            background-color: #ffdddd;
+            color: #d8000c;
+            border: 1px solid #d8000c;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+    </style>
+</body>
+</html>

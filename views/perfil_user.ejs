@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuário</title>
+
+    <link rel="stylesheet" href="./css/style_user.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Montserrat&family=Varela+Round&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="top-header">
+            <div class="container1">
+                <div class="logo_home">
+                    <img src="img/Logo_lageado.png" alt="Logo prefeitura de Lageado">
+                </div>
+                <div class="perfil">
+                  <a href="/perfil_user"><img src="img/Perfil_User.png" alt="Perfil de usuário" id="perfil-icon"></a>
+                    <% if (user) { %>
+                        <p><%= user.name %></p>
+                        <a href="/logout">Logout</a>
+                    <% } else { %>
+                        <a href="/login">Login</a>
+                    <% } %>
+                </div>
+            <div class="header-search">
+                <form>
+                    <input id="input" placeholder="Pesquisar Serviço">
+                    <button id="botao">Buscar</button>
+                </form>
+            </div>
+       </div>
+    </header>
+    <div class="body-section">
+        <div class="dados">
+            <div class="frase-dados">
+                <h1>Dados Pessoais</h1>
+            </div>
+            <br>
+            <div>
+                <img src="./img/perfil 2.png" alt="">
+            </div>
+        </div>
+
+        <div class="informacoes">
+            <div class="nome-comp">
+            <p id="titulo">Nome Completo:</p>
+                <br>
+                <p id="nome"><%= user.name %></p>
+            </div>
+
+            <div class="e-mail">
+                <p id="titulo">E-mail:</p>
+                <br>
+                <p id="email"><%= user.email %></p>
+            </div>
+
+            <div class="cpf">
+                <p id="titulo">CPF:</p>
+                <br>
+                <p id="cpf-number"><%= user.cpf %></p>
+            </div>
+
+            <div class="telefone">
+                <p id="titulo">Telefone:</p>
+                <br>
+                <p id="tel"><%= user.phone %></p>
+            </div>
+
+            <div class="editar-p">
+                <button id="botao2">Editar Perfil <img src="./img/lapis.png" alt=""></button>
+            </div>
+        </div>
+
+        <div class="solic">
+            <div class="Solicitacoes">
+                <h1>Solicitações</h1>
+            </div>
+            <br>
+
+            <div class="pendentes">
+                <h2>Pendentes:</h2>
+            </div>
+            <br>
+
+            <div class="box1">
+                <div class="protocol1">
+                    <p>Nº do protocolo: 025483</p><br>
+                    <p>Data de solicitação: 08/10/2024</p><br>
+                    <p>Tipo: Atendimento de Psicólogo e Assistente Escolar</p><br>
+                    <p>Órgão: Secretaria Municipal de Educação</p>
+                </div>
+                <br>
+
+                <div class="protocol2">
+                    <p>Nº do protocolo: 025483</p><br>
+                    <p>Data de solicitação: 08/10/2024</p><br>
+                    <p>Tipo: Atendimento de Psicólogo e Assistente Escolar</p><br>
+                    <p>Órgão: Secretaria Municipal de Educação</p>
+                </div>
+                <br>
+
+                <div class="protocol3">
+                    <p>Nº do protocolo: 025483</p><br>
+                    <p>Data de solicitação: 08/10/2024</p><br>
+                    <p>Tipo: Atendimento de Psicólogo e Assistente Escolar</p><br>
+                    <p>Órgão: Secretaria Municipal de Educação</p>
+                </div>
+                <br>
+
+                <div class="protocol4">
+                    <p>Nº do protocolo: 025483</p><br>
+                    <p>Data de solicitação: 08/10/2024</p><br>
+                    <p>Tipo: Atendimento de Psicólogo e Assistente Escolar</p><br>
+                    <p>Órgão: Secretaria Municipal de Educação</p>
+                </div>
+                <br>
+            </div>
+
+            <div class="box2">
+               <div class="analise1">
+                    <p>Nº do protocolo: 025483</p><br>
+                    <p>Data de solicitação: 08/10/2024</p><br>
+                    <p>Tipo: Atendimento de Psicólogo e Assistente Escolar</p><br>
+                    <p>Órgão: Secretaria Municipal de Educação</p>
+                </div>
+                <br>
+
+                <div class="analise2">
+                    <p>Nº do protocolo: 025483</p><br>
+                    <p>Data de solicitação: 08/10/2024</p><br>
+                    <p>Tipo: Atendimento de Psicólogo e Assistente Escolar</p><br>
+                    <p>Órgão: Secretaria Municipal de Educação</p>
+                </div>
+                <br>
+
+                <div class="analise3">
+                    <p>Nº do protocolo: 025483</p><br>
+                    <p>Data de solicitação: 08/10/2024</p><br>
+                    <p>Tipo: Atendimento de Psicólogo e Assistente Escolar</p><br>
+                    <p>Órgão: Secretaria Municipal de Educação</p>
+                </div>
+                <br>
+
+                <div class="analise4">
+                    <p>Nº do protocolo: 025483</p><br>
+                    <p>Data de solicitação: 08/10/2024</p><br>
+                    <p>Tipo: Atendimento de Psicólogo e Assistente Escolar</p><br>
+                    <p>Órgão: Secretaria Municipal de Educação</p>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

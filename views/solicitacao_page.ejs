@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Solicitação</title>
+
+    <link rel="stylesheet" href="./css/style_solicitacao.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Montserrat&family=Varela+Round&display=swap" rel="stylesheet">
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <header>
+        <div class="top-header">
+            <div class="container">
+                <div class="logo_home">
+                    <img src="img/Logo_lageado.png" alt="Logo prefeitura de Lageado">
+                </div>
+                <div class="perfil">
+                    <img src="img/Perfil_User.png" alt="Perfil de usuário">
+                </div>
+                <div class="header-search">
+                    <form>
+                        <input id="input" placeholder="Pesquise aqui">
+                    </form>
+                </div>
+           </div>
+        </div>
+        <hr class="hr1">
+    </header>
+    <div class="body-section">
+        <br><br>
+        <h1>Agendamento de Consultas - Unidade Básica de Saúde</h1>
+        <br>
+        <div class="dados">
+            <h4>Dados do<br> Requerente:</h4>
+            <br>
+            <div>
+                <p>Nome Completo:</p>
+                <br>
+                <div class="campo-dados">
+                    <p><%= user.name %></p>
+                </div>
+            </div>
+            <br>
+            <div>
+                <p>CPF:</p>
+                <br>
+                <div class="campo-dados">
+                    <p><%= user.cpf %></p>
+                </div>
+            </div>
+        </div>
+        <hr class="hr2">
+        <!-- Início do Formulário -->
+        <form action="/service" method="POST" enctype="multipart/form-data" id="serviceForm">
+            <div class="documentos">
+                <h4>Relação de<br> Documentos:</h4>
+                <br>
+                <div>
+                    <p>Documentos de Identificação (PDF ou JPG):</p>
+                    <br>
+                    <input type="file" accept=".pdf,.jpg,.jpeg" id="identidade" name="identidade" required />
+                </div>
+                <br>
+                <div>
+                    <p>Cartão Nacional do SUS (PDF ou JPG):</p>
+                    <br>
+                    <input type="file" accept=".pdf,.jpg,.jpeg" id="sus" name="sus" required />
+                </div>
+            </div>
+            <br><br>
+            <button class="solicitarbutton" type="submit">SOLICITAR</button>
+        </form>
+        <!-- Fim do Formulário -->
+    </div>
+
+    <script>
+        // Adicionando o listener para o envio do formulário
+        document.getElementById("serviceForm").onsubmit = function(event) {
+            event.preventDefault(); // Impede o envio do formulário para tratar com AJAX
+
+            const formData = new FormData(this);
+
+            fetch('/service', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    Swal.fire({
+                        title: 'Sucesso!',
+                        text: data.message,
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    }).then(() => {
+                        window.location.href = '/home'; // Redireciona para a página home
+                    });
+                } else {
+                    Swal.fire({
+                        title: 'Erro!',
+                        text: data.message,
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                }
+            })
+            .catch(error => {
+                Swal.fire({
+                    title: 'Erro!',
+                    text: 'Erro ao processar a solicitação. Tente novamente mais tarde.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            });
+        };
+    </script>
+</body>
+</html>

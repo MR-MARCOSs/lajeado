@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Montserrat&family=Varela+Round&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="top-header">
+            <div class="container1">
+                <div class="logo_home">
+                    <img src="img/Logo_lageado.png" alt="Logo prefeitura de Lageado">
+                </div>
+                <div class="perfil">
+                  <a href="/perfil_user"><img src="img/Perfil_User.png" alt="Perfil de usuário" id="perfil-icon"></a>
+                    <% if (user) { %>
+                        <p><%= user.name %></p>
+                        <a href="/logout">Logout</a>
+                    <% } else { %>
+                        <a href="/login">Login</a>
+                    <% } %>
+                </div>
+                <div class="header-search">
+                    <form>
+                        <input id="input" placeholder="Pesquise aqui" oninput="pesquisar()">
+                    </form>
+                </div>
+           </div>
+        </div>
+    </header>
+    <div class="body_header">
+        <div class="imagens">
+            <div class="caderneta">
+                <img src="img/caderneta.png" alt="Ilustração">
+            </div>
+        </div>
+        <div class="header-text">
+            <div id="frase1">
+                <h1>A SUA SATISFAÇÃO <br> É A NOSSA MISSÃO!</h1>
+            </div>
+            <br>
+            <div id="frase2">
+                <p>solicite agora um serviço <br> ou faça uma reclamação</p>   
+            </div>
+        </div>
+        <div class="imagens">
+            <div class="cidadao">
+                <img src="./img/cidadao.png" alt="">
+            </div>
+        </div>
+    </div>
+    <section>
+        <div class="bloco1">
+            <div class="indices">
+                <h2 id="Perfil2">Perfil:</h2>
+                <br>
+                <a href="#" id="cidadao"><h3>Cidadão</h3></a>
+                <a href="#" id="servidor"><h3>Servidor</h3></a>
+                <a href="#" id="empresa"><h3>Empresa</h3></a>
+            </div>
+        </div>  
+        <div class="bloco2">
+            <h2 id="orgaos">Órgãos:</h2>
+            <br>
+            <a href="#" id="saude">Secretaria Municipal da Saúde</a>
+            <a href="#" id="Secretarias">Secretaria Municipal da Educação</a>
+            <a href="#" id="Secretarias">Secretaria Municipal de Administração</a>
+            <a href="#" id="Secretarias">Secretaria Municipal de Finanças</a>
+            <a href="#" id="Secretarias">Secretaria Municipal de<br> Assistência Social</a>
+            <a href="#" id="Secretarias">Secretaria Municipal de<br> Infraestrutura e Transporte</a>
+            <a href="#" id="Secretarias">Secretaria Municipal de<br> Controle Interno</a>
+            <a href="#" id="Secretarias">Secretaria Municipal de Agricultura, <br>Agropecuária e Abastecimento</a>
+            <a href="#" id="Secretarias">Secretaria Municipal de Meio<br> Ambiente, Saneamento, Turismo,<br> Juventude, Esporte e Cultura</a>
+        </div>
+
+        <div class="container" id="container">
+
+            </div>
+        </div>
+
+        <div class="bloco3">
+            <br><br>
+            <div class="contato">
+                <h4>PREFEITURA DE LAJEADO</h4>
+                <p>JUSTINIANO MONTEIRO, SN - CENTRO CEP: 77645-000, LAJEADO - TO</p>
+                <br>
+                <h4>Telefone de Contato: (63)3519-1235</p></h4>
+                <br>
+                <h4>E-mail: gabinete@lajeado.to.gov.br</h4>
+            </div>
+
+            <div class="info_ajuda">
+                <div class="ouvidoria">
+                    <img src="./img/telefone.png" id="logo-info" alt="logo telefone">
+                    <h4 id="info-line">Ouvidoria</h4>
+                </div>
+    
+                <div class="informacoes">
+                    <img src="./img/informacao.png"  id="logo-info" alt="logo informação">
+                    <h4 id="info-line">Informações</h4>
+                </div>
+    
+                <div class="portal">
+                    <img src="./img/lupa.png"  id="logo-info" alt="logo lupa">
+                    <h4 id="info-line">Portal de<br> Transparência</h4>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <script src="./search_data.js"></script>
+    <script src="./search.js"></script>
+</body>
+</html>

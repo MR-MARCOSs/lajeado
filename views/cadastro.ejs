@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Page</title>
+
+    <!-- Mantém a estilização do seu CSS -->
+    <link rel="stylesheet" href="./css/style_cadastro.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Montserrat&family=Varela+Round&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-log">
+            <div class="logo">
+                <img src="./img/Logo_lageado.png" alt="">
+            </div>
+        </div>
+    </header>
+    
+    <!-- Exibe o erro, caso exista -->
+    <% if (errorMessage) { %>
+        <div class="error-message">
+            <%= errorMessage %>
+        </div>
+    <% } %>
+
+    <!-- Alterei o método para POST e a action para '/register' -->
+    <form action="/register" method="POST" onsubmit="return validarCPF()">
+        <div class="container">
+            <!-- Campo para Nome Completo -->
+            <div class="input_nome">
+                <label for="name"> Nome Completo: </label>
+                <br>
+                <input id="inputname" type="text" name="name" required>
+            </div>
+            <br>
+
+            <!-- Campo para CPF -->
+            <div class="input_cpf">
+                <label for="CPF"> CPF: </label>
+                <br>
+                <input id="inputcpf" type="text" name="cpf" required>
+            </div>
+            <br>
+
+            <!-- Campo para E-mail -->
+            <div class="input_e-mail">
+                <label for="email"> E-mail: </label>
+                <br>
+                <input id="input_e-mail" type="email" name="email" required>
+            </div>
+            <br>
+
+            <!-- Campo para Telefone -->
+            <div class="input_telefone">
+                <label for="telefone"> Telefone: </label>
+                <br>
+                <input id="inputtel" type="tel" name="phone" required>
+            </div>
+            <br>
+
+            <!-- Campo para Senha -->
+            <div class="input_password">
+                <label for="senha"> Senha: </label>
+                <br>
+                <input id="inputsenha" type="password" name="password" required>
+            </div>
+            <br>
+
+            <!-- Botão de Cadastro -->
+            <div class="button_log_user">
+                <button type="submit" id="button_cadas">Cadastrar</button>
+            </div>
+            <br>
+
+            <!-- Mensagem de erro do CPF -->
+            <p id="error-message" style="color: red; display: none;">CPF inválido. Por favor, insira um CPF válido.</p>
+        </div>
+    </form>
+
+
+
+    <style>
+        .error-message {
+            background-color: #ffdddd;
+            color: #d8000c;
+            border: 1px solid #d8000c;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+    </style>
+</body>
+</html>
