@@ -17,4 +17,5 @@ RUN npm install -g nodemon
 EXPOSE 3000
 
 # Comando para iniciar a aplicação
-CMD ["npx", "nodemon", "app.js"]
+CMD ["node", "app.js"]
+

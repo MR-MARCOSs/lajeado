@@ -16,21 +16,21 @@
 <body>
     <header>
         <div class="top-header">
-            <div class="container">
+            <div class="container1">
                 <div class="logo_home">
-                    <img src="img/Logo_lageado.png" alt="Logo prefeitura de Lageado">
+                    <a href="/home"><img src="img/Logo_lageado.png" alt="Logo prefeitura de Lageado"></a>
                 </div>
                 <div class="perfil">
-                    <img src="img/Perfil_User.png" alt="Perfil de usuário">
-                </div>
-                <div class="header-search">
-                    <form>
-                        <input id="input" placeholder="Pesquise aqui">
-                    </form>
+                  <a href="/perfil_user"><img src="img/Perfil_User.png" alt="Perfil de usuário" id="perfil-icon"></a>
+                    <% if (user) { %>
+                        <p><%= user.name %></p>
+                        <a href="/logout">Logout</a>
+                    <% } else { %>
+                        <a href="/login">Login</a>
+                    <% } %>
                 </div>
            </div>
         </div>
-        <hr class="hr1">
     </header>
     <div class="body-section">
         <br><br>

@@ -5,9 +5,10 @@
     font-family: 'Monserrat', sans-serif;
 }
 
-header{
+header {
     height: 110px;
     padding: 10px 0;
+    position: relative;  /* Adiciona posição relativa ao header */
 }
 
 .container1{
@@ -50,35 +51,58 @@ header{
     border: 1px solid #000;
 }
 
-.body_header{
-    display: flex;
-    flex-direction: row;
-    background-color: #1FB857;
-    justify-content: space-between;
-    padding: 40px;
-    width: 100%;
-    height: 80%;    
-}
 
 .imagens{
     display: flex;
     flex-direction: row;
 }
 
-.caderneta{
-    display: flex;
-    flex-direction: row;  
-    left: 0; /* Alinhado à esquerda */
-    margin: 10px;
-    margin-left: -5%;
-}
-
-.cidadao{
+.body_header {
     display: flex;
     flex-direction: row;
-    right: 0; /* Alinhado à direita*/
+    background-color: #1FB857;
+    justify-content: space-between;  /* Distribui as imagens igualmente */
+    width: 100%;
+    height: 80%;
+    align-items: flex-end;  /* Alinha as imagens na parte inferior */
+    padding: 0 20px;  /* Espaçamento nas laterais */
+}
+
+.body_header img {
+    height: auto;  /* Mantém a proporção das imagens */
+    width: 100%;  /* As imagens vão ocupar toda a largura disponível do seu contêiner */
+}
+
+/* Definindo largura para as imagens */
+.caderneta img {
+    width: 100%;  /* Ajuste de largura para imagem 1 */
+    height: auto;  /* Mantém a proporção da imagem */
+}
+
+.cidadao img {
+    width: 100%;  /* Garante que a imagem 2 tenha a mesma largura da imagem 1 */
+    height: auto;  /* Mantém a proporção da imagem */
+}
+
+/* Estilo específico para a imagem 'caderneta' */
+.caderneta {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+    height: 100%;
+    margin-top: 10%;
+    margin-left: 5%;
+}
+
+/* Estilo específico para a imagem 'cidadao' */
+.cidadao {
+    display: flex;
+    flex-direction: row;
+    margin-right: 10%;
     margin: 10px; 
 }
+
+/* Caso você precise de algum ajuste no posicionamento de imagens */
 
 .header-text{
     display: block;
@@ -89,11 +113,14 @@ header{
 
 #frase1{
     margin-top: 30%;
+    margin-bottom: 10%;
 }
 
 #frase2{
     margin-left: 20%;
     font-weight: bold;
+    
+    margin-bottom: 30%;
 }
 
 .bloco1{

@@ -5,113 +5,140 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-header{
-    height: 120px;
-    padding: 10px 0;
-}
-
-.container1{
-    display: flex;
-    flex-direction: row;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #fff;
-}
-
-.logo_home img{
-    position: absolute; 
-    margin-top: 1%;  
-    left: 0; 
-    margin: 10px; 
-}
-
-.perfil{
-    position: absolute;
-    margin-top: 3%; 
-    right: 0; 
-    margin: 10px; 
-}
-
-.header-search{
-    position: absolute;
-    margin-top: 2.5%;
-    left: 55%;
-    transform: translateX(-60%);
-}
-
-::placeholder{
-    padding-left: 15px; /*alinhando o 'pesquise aqui' para a esqueda*/
-}
-
-input{
-    width: 400px;
-    height: 30px;
-    border-radius: 5px;
-    border: 1px solid #000;
-}
-
-.body-section{
+body {
     background-color: #3F5FCE;
+    color: #fff; /* Cor do texto padrão para o body */
 }
 
-.informacoes{
-    display: flex;
-    flex-direction: row;
-}
-
-.titulo{
-   margin-top: 3%;
-   margin-left: 10%;
-}
-
-.titulo h1{
-    color: #fff;
-}
-
-.box1{
-    display: flex;
-    flex-direction: row;
-    width: 295px;
-    margin-top: 5%;
-    margin-left: 10%;
-    gap: 10%;
-    color: #fff;
-}
-
-.box2{
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    margin-top: 12%;
-    gap: 7%;
-    color: #fff;
-}
-
-.dados{
-    border: 1px solid #000;
+header{
+    background-color: #fff; /* Cor de fundo do header */
+    padding: 20px; /* Espaçamento interno do header */
+ }
+ .solicitacao-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
     border-radius: 5px;
-    width: 220px;
-    height: 30px;
 }
 
-.dados p{
-    margin-left: 6%;
-    margin-top: 2.5%;
-    color: #383737;
+.container1 {
+    display: flex;
+    justify-content: space-between; /* Distribui os itens nos cantos */
+    align-items: center; /* Alinha verticalmente ao centro */
+    max-width: 1200px; /* Largura máxima do container */
+    margin: 0 auto; /* Centraliza o container */
+    padding: 0 20px; /* Espaçamento lateral */
+}
+
+.logo-link { /* Estilo para o link da logo */
+    display: block;
 }
 
 
+.logo-link img {
+    max-width: 200px; /* Largura máxima da imagem da logo */
+    height: auto;
+}
+
+.perfil {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaço entre a imagem e o texto do perfil */
+}
+
+.perfil img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Imagem do perfil circular */
+}
+
+.body-section {
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* Itens dispostos em coluna no mobile */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+
+}
+
+.dados, .solic {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    color: #383737; /* Cor do texto dentro das seções */
+
+}
+.dados img {
+    display: block; /* Impede que a imagem afete o fluxo do layout */
+    margin: 20px auto; /* Centraliza a imagem */
+    max-width: 150px;
+    height: auto;
+    border-radius: 50%;
+
+}
+.informacoes {
+    display: grid; /* Usa grid para melhor organização */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsivo */
+    gap: 10px;
+}
+
+.info-item {
+    margin-bottom: 10px; /* Espaço entre os itens de informação */
+
+}
 
 
+.titulo {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#botao2 {
+    background-color: #3F5FCE;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    display: flex;
+    align-items: center; /* Alinhar o texto e a imagem verticalmente */
+    gap: 5px;
 
 
+}
+#botao2 img {
+    width: 20px;
+    height: 20px;
+
+}
 
 
+.status-solicitacoes {
+  display: grid; /* Usa grid para as seções pendentes e em análise */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsivo */
+    gap: 20px;
+}
 
+.box1, .box2 {
+    display: flex;
+    flex-direction: column; /* Organiza os itens verticalmente */
+    gap: 15px;
+}
 
-
-
-
-
-
-
+/* Media query para telas maiores */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row; /* Itens dispostos lado a lado em telas maiores */
+    }
+    .dados {
+        width: 30%;
+    }
+    .solic {
+        width: 70%;
+    }
+}

@@ -240,12 +240,49 @@ router.get('/home', (req, res) => {
   res.render('home', { user: req.session.user });
 });
 
-router.get('/perfil_user', (req, res) => {
+
+
+
+
+router.get('/perfil_user', async (req, res) => {
   if (!req.session.user) {
-    return res.redirect('/login'); // Redirecionar para login se não estiver logado
+    return res.redirect('/login');
   }
-  res.render('perfil_user', { user: req.session.user });
+
+  const userId = req.session.user.id;
+
+  try {
+    // Consultar os documentos do usuário no banco de dados
+    const [rows] = await db.query("SELECT docId, created_at FROM user_documents WHERE userId = ?", [userId]);
+
+    // Transformar os dados em formato adequado
+    const solicitacoesPendentes = rows.map(doc => ({
+      docId: doc.docId || "N/A", // Garante que não seja vazio
+      createdAt: doc.created_at ? new Date(doc.created_at).toLocaleString("pt-BR") : "Data inválida"
+    }));
+
+    // Renderizar a página com os dados
+    res.render('perfil_user', { 
+      user: req.session.user, 
+      solicitacoesPendentes // Dados processados
+    });
+
+  } catch (err) {
+    console.error("Erro ao buscar documentos:", err);
+
+    // Renderiza a página mesmo em caso de erro
+    res.render('perfil_user', { 
+      user: req.session.user, 
+      solicitacoesPendentes: [], // Garantindo que está inicializado
+      errorMessage: "Erro ao carregar as solicitações." 
+    });
+  }
 });
+
+
+
+
+
 
 router.get('/solicitacao_page', (req, res) => {
   if (!req.session.user) {
